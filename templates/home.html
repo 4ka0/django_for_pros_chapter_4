@@ -6,11 +6,14 @@
 {% block content %}
 
   <h1>Home page</h1>
+  <br>
 
   <img class="bookcover" src="{% static 'images/dfp.jpg' %}">
+  <br>
 
   {% if user.is_authenticated %}
 
+    <br>
     <h3>User details:</h3>
 
     <p>
@@ -92,18 +95,7 @@
       Groups: {{ user.groups }}
         <br>
 
-      <p>
-        <a href="{% url 'logout' %}">Log out</a>
-      </p>
-
     </p>
-
-  {% else %}
-
-    <p>You are not logged in.</p>
-    <a href="{% url 'login' %}">Log in</a>
-    &nbsp;|&nbsp;
-    <a href="{% url 'signup' %}">Sign up</a>
 
   {% endif %}
 
