@@ -5,99 +5,98 @@
 
 {% block content %}
 
-  <br>
-  <h1>Home page</h1>
-  <br>
+    <br>
+    <h1>Home Page</h1>
+    <br>
 
-  <img class="bookcover" src="{% static 'images/dfp.jpg' %}">
-  <br>
+    <img class="bookcover" src="{% static 'images/dfp.jpg' %}">
+    <br>
 
-  {% if user.is_authenticated %}
+    {% if user.is_authenticated %}
 
-    <br><br>
-    <h3>User details:</h3>
+        <br><br>
+        <h3>User details:</h3>
 
-    <p>
-      Username:
-        {% if user.username %}
-          {{ user.username }}
-        {% else %}
-          Unknown
-        {% endif %}
-        <br>
+        <p>
+            Username:
+                {% if user.username %}
+                    {{ user.username }}
+                {% else %}
+                    Unknown
+                {% endif %}
+                <br>
 
-      Email:
-        {% if user.email %}
-          {{ user.email }}
-        {% else %}
-          Unknown
-        {% endif %}
-        <br>
+            Email:
+                {% if user.email %}
+                    {{ user.email }}
+                {% else %}
+                    Unknown
+                {% endif %}
+                <br>
 
-      First name:
-        {% if user.first_name %}
-          {{ user.first_name }}
-        {% else %}
-          Unknown
-        {% endif %}
-        <br>
+            First name:
+                {% if user.first_name %}
+                    {{ user.first_name }}
+                {% else %}
+                    Unknown
+                {% endif %}
+                <br>
 
-      Last name:
-        {% if user.last_name %}
-          {{ user.last_name }}
-        {% else %}
-          Unknown
-        {% endif %}
-        <br>
+            Last name:
+                {% if user.last_name %}
+                    {{ user.last_name }}
+                {% else %}
+                    Unknown
+                {% endif %}
+                <br>
 
-      Status:
-        {% if user.is_active %}
-          Active
-        {% else %}
-          Inactive
-        {% endif %}
-        <br>
+            Status:
+                {% if user.is_active %}
+                    Active
+                {% else %}
+                    Inactive
+                {% endif %}
+                <br>
 
-      Staff status:
-        {% if user.is_staff %}
-          Yes
-        {% else %}
-          No
-        {% endif %}
-        <br>
+            Staff status:
+                {% if user.is_staff %}
+                    Yes
+                {% else %}
+                    No
+                {% endif %}
+                <br>
 
-      Superuser status:
-        {% if user.is_superuser %}
-          Yes
-        {% else %}
-          No
-        {% endif %}
-        <br>
+            Superuser status:
+                {% if user.is_superuser %}
+                    Yes
+                {% else %}
+                    No
+                {% endif %}
+                <br>
 
-      Date joined:
-        {% if user.date_joined %}
-          {{ user.date_joined }}
-        {% else %}
-          Unknown
-        {% endif %}
-        <br>
+            Date joined:
+                {% if user.date_joined %}
+                    {{ user.date_joined }}
+                {% else %}
+                    Unknown
+                {% endif %}
+                <br>
 
-      Last login:
-        {% if user.last_login %}
-          {{ user.last_login }}
-        {% else %}
-          Unknown
-        {% endif %}
-        <br>
+            Last login:
+                {% if user.last_login %}
+                    {{ user.last_login }}
+                {% else %}
+                    Unknown
+                {% endif %}
+                <br>
 
-      Permissions: {{ user.user_permissions }}
-        <br>
+            Permissions: {{ user.user_permissions }}
+                <br>
 
-      Groups: {{ user.groups }}
-        <br>
+            Groups: {{ user.groups }}
+                <br>
+        </p>
 
-    </p>
-
-  {% endif %}
+    {% endif %}
 
 {% endblock content %}
