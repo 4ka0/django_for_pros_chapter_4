@@ -21,9 +21,7 @@ urlpatterns = [
     path(
         'account/password/change/',
         login_required(
-            allauth_views.PasswordChangeView.as_view(
-                success_url=reverse_lazy('home')
-            )
+            allauth_views.PasswordChangeView.as_view(success_url=reverse_lazy('home'))
         ),
         name='account_change_password'
     ),
