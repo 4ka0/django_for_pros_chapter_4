@@ -87,7 +87,7 @@ class LoginPageTests(TestCase):
         self.assertContains(self.response, "E-mail")
         self.assertContains(self.response, "Password")
         self.assertContains(self.response, '<form method="post">')
-        self.assertContains(self.response, '<button class="btn btn-success" type="submit">Log in</button>')
+        self.assertContains(self.response, '<button class="btn btn-primary" type="submit">Log in</button>')
         self.assertNotContains(self.response, "Home page")
         self.assertNotContains(self.response, "About page")
 

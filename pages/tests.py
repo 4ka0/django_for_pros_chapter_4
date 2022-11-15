@@ -21,7 +21,7 @@ class HomePageTests(SimpleTestCase):
         self.assertTemplateUsed(self.response, 'home.html')
 
     def test_homepage_correct_content(self):
-        self.assertContains(self.response, 'Home page')
+        self.assertContains(self.response, 'Home Page')
 
     def test_homepage_incorrect_content(self):
         self.assertNotContains(self.response, 'Wibble')
