@@ -13,7 +13,6 @@ urlpatterns = [
 
     # User authentication
     path('accounts/', include('allauth.urls')),
-
     # allauth's PasswordChangeView redirects to the same form upon success.
     # This is a known issue. Below, the url for PasswordChangeView is overridden to specify
     # the desired redirect url. This solution taken from the issue page:
@@ -28,4 +27,5 @@ urlpatterns = [
 
     # Local apps
     path('', include('pages.urls')),
+    path('books/', include('books.urls')),
 ]
