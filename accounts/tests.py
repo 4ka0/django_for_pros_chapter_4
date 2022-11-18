@@ -94,13 +94,16 @@ class LoginPageTests(TestCase):
 
 class LogoutPageTests(TestCase):
 
-    def setUp(self):
+    @classmethod
+    def setUpTestData(cls):
         User = get_user_model()
-        self.user = User.objects.create_user(
+        cls.user = User.objects.create_user(
             username='testuser',
             email='testuser@email.com',
             password='testuser123',
         )
+
+    def setUp(self):
         self.client.force_login(self.user)
         url = reverse("account_logout")
         self.response = self.client.get(url)
