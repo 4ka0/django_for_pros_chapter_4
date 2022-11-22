@@ -11,6 +11,11 @@
         <div>
             <br>
             <h4><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h4>
+            {% if book.reviews.all %}
+                <span>
+                    ({{ book.reviews.all|length }} review{{ book.reviews.all|pluralize }})
+                </span>
+            {% endif %}
         </div>
     {% endfor %}
 

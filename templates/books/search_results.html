@@ -10,7 +10,13 @@
     {% for book in book_list %}
         <div>
             <h3><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h3>
-            <p>Author: {{ book.author }}, Price: ${{ book.price }}</p>
+            <p>
+                Author: {{ book.author }},
+                Price: ${{ book.price }}
+                {% if book.reviews.all %}
+                    ({{ book.reviews.all|length }} review{{ book.reviews.all|pluralize }})
+                {% endif%}
+            </p>
         </div>
     {% endfor %}
 
