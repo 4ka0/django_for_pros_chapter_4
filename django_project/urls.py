@@ -2,15 +2,15 @@ from django.urls import path, include
 from django.urls import reverse_lazy
 from django.contrib import admin
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+from django.conf.urls.static import static
 
 from allauth.account import views as allauth_views
 
 
 urlpatterns = [
-
     # Django admin
     path('admin/', admin.site.urls),
-
     # User authentication
     path('accounts/', include('allauth.urls')),
     # allauth's PasswordChangeView redirects to the same form upon success.
@@ -24,8 +24,9 @@ urlpatterns = [
         ),
         name='account_change_password'
     ),
-
     # Local apps
     path('', include('pages.urls')),
     path('books/', include('books.urls')),
-]
+] + static(
+    settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
+)

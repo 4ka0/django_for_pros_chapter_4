@@ -10,10 +10,8 @@ env.read_env()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = env("DJANGO_SECRET_KEY")
-
 DEBUG = env.bool("DJANGO_DEBUG")
-
+SECRET_KEY = env("DJANGO_SECRET_KEY")
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver', '.herokuapp.com']
 
 
@@ -103,23 +101,21 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'Asia/Tokyo'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 STATIC_URL = 'static/'
-
 STATICFILES_DIRS = [BASE_DIR / 'static']
-
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "static"
 
 
 # Default primary key field type

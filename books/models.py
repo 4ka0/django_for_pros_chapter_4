@@ -5,7 +5,6 @@ from django.contrib.auth import get_user_model
 
 
 class Book(models.Model):
-    # Uses a UUID as a unique ID for each Book object
     id = models.UUIDField(
         primary_key=True,
         default=uuid.uuid4,
@@ -14,6 +13,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     author = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    cover = models.ImageField(upload_to="covers/", blank=True)
 
     def __str__(self):
         return self.title
