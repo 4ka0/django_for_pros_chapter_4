@@ -3,9 +3,10 @@
 {% block title %}{{ book.title }}{% endblock title %}
 
 {% block content %}
+
     <div class="book-detail">
         <br>
-        <h4><a href="">{{ book.title }}</a></h4>
+        <h3>{{ book.title }}</h3>
         <br>
         <p>Author: {{ book.author }}</p>
         <p>Price: ${{ book.price }}</p>
@@ -13,14 +14,24 @@
             <img class="bookcover" src="{{ book.cover.url }}" alt="{{ book.title }}">
             <br><br>
         {% endif %}
-        <div>
+    </div>
+
+    {% if book.reviews.all %}
+        <div class="book-reviews">
             <br>
             <h5>Reviews</h5>
+            <br>
             {% for review in book.reviews.all %}
                 <div class="alert alert-primary" role="alert">
                     "{{ review.text }}" ({{ review.author }})
                 </div>
             {% endfor %}
         </div>
-    </div>
+    {% else %}
+        <br>
+        <div class="alert alert-danger" role="alert">
+            No reviews yet ...
+        </div>
+    {% endif %}
+
 {% endblock content %}
