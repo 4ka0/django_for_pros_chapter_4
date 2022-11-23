@@ -13,6 +13,9 @@
         {% if book.cover %}
             <img class="bookcover" src="{{ book.cover.url }}" alt="{{ book.title }}">
             <br><br>
+        {% else %}
+            <br>
+            <p>(No cover image available.)</p>
         {% endif %}
     </div>
 
@@ -28,10 +31,7 @@
             {% endfor %}
         </div>
     {% else %}
-        <br>
-        <div class="alert alert-danger" role="alert">
-            No reviews yet ...
-        </div>
+        <p>(No reviews yet.)</p>
     {% endif %}
 
 {% endblock content %}
