@@ -16,6 +16,10 @@ class Book(models.Model):
     cover = models.ImageField(upload_to="covers/", blank=True)
 
     class Meta:
+        # Index added for optimizing database performance.
+        indexes = [
+            models.Index(fields=["id"], name="id_index")
+        ]
         permissions = [
             ("special_status", "Can read all books"),
         ]
