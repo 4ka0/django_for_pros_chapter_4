@@ -10,6 +10,11 @@ class BookListView(LoginRequiredMixin, ListView):
     context_object_name = "book_list"
     template_name = "books/book_list.html"
     login_url = "account_login"
+    # prefetch_related() is used to return a QuerySet that will automatically
+    # retrieve, in a single batch, related objects (Review objects) for each of
+    # the Book objects. Designed to reduce the database queries caused by
+    # accessing related objects.
+    queryset = Book.objects.all().prefetch_related('reviews__author')
 
 
 class BookDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
@@ -18,6 +23,7 @@ class BookDetailView(LoginRequiredMixin, PermissionRequiredMixin, DetailView):
     template_name = "books/book_detail.html"
     login_url = "account_login"
     permission_required = "books.special_status"
+    queryset = Book.objects.all().prefetch_related('reviews__author')
 
 
 class SearchResultsListView(ListView):
