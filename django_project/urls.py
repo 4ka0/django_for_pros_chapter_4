@@ -31,6 +31,7 @@ urlpatterns = [
     settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
 )
 
+# URL config for django_debug_toolbar
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns = [
