@@ -10,7 +10,7 @@ from allauth.account import views as allauth_views
 
 urlpatterns = [
     # Django admin
-    path('admin/', admin.site.urls),
+    path('fish1234/', admin.site.urls),
     # User authentication
     path('accounts/', include('allauth.urls')),
     # allauth's PasswordChangeView redirects to the same form upon success.
