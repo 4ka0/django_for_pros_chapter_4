@@ -7,7 +7,6 @@ from django.conf.urls.static import static
 
 from allauth.account import views as allauth_views
 
-# test comment
 
 urlpatterns = [
     # Django admin
