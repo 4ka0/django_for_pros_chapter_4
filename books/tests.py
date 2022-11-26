@@ -44,7 +44,7 @@ class BookTests(TestCase):
             text="An excellent review!"
         )
 
-    def test_book_object_creation(self):
+    def test_book1_object_creation(self):
         self.assertEqual(f"{self.book1.title}", "Harry Potter")
         self.assertEqual(f"{self.book1.author}", "JK Rowling")
         self.assertEqual(f"{self.book1.price}", "25.00")
@@ -74,9 +74,7 @@ class BookTests(TestCase):
         self.client.login(email="review_user@email.com", password="testpass123")
         self.user.user_permissions.add(self.special_permission)
         response = self.client.get(self.book1.get_absolute_url())
-        no_response = self.client.get("/books/12345/")
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(no_response.status_code, 404)
         self.assertContains(response, "Harry Potter")
         self.assertContains(response, "An excellent review!")
         self.assertTemplateUsed(response, "_base.html")
